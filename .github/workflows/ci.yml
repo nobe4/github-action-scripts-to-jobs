@@ -11,19 +11,10 @@ on:
 jobs:
   works:
     runs-on: ubuntu-latest
+    name: "{{ matrix.script }}"
+    strategy:
+      matrix:
+        script: ["works.sh", "fails.sh", "waits.sh"]
     steps:
       - uses: actions/checkout@v4
-      - run: ./scripts/works.sh
-
-  fails:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: ./scripts/fails.sh
-
-  waits:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - run: ./scripts/waits.sh
-
+      - run: ./scripts/{{ matrix.script }}
