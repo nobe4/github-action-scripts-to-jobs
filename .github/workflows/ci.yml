@@ -16,8 +16,7 @@ jobs:
     steps:
       - name: Define scripts
         id: scripts
-        run: |
-          echo 'scripts=["works.sh", "fails.sh", "waits.sh"]' >> "$GITHUB_OUTPUT"
+        run: ./scripts/list.sh >> "$GITHUB_OUTPUT"
 
   execute:
     runs-on: ubuntu-latest
@@ -28,4 +27,4 @@ jobs:
         script: ${{ fromJSON(needs.list.outputs.scripts) }}
     steps:
       - uses: actions/checkout@v4
-      - run: ./scripts/${{ matrix.script }}
+      - run: ${{ matrix.script }}
