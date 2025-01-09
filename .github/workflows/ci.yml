@@ -25,6 +25,7 @@ jobs:
     needs: list
     name: "${{ matrix.script }}"
     strategy:
+      fail-fast: false
       matrix:
         script: ${{ fromJSON(needs.list.outputs.scripts) }}
     steps:
