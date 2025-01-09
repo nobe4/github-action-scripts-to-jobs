@@ -25,7 +25,7 @@ jobs:
     name: "${{ matrix.script }}"
     strategy:
       matrix:
-        script: ${{ needs.list.outputs.scripts }}
+        script: ${{ fromJSON(needs.list.outputs.scripts) }}
     steps:
       - uses: actions/checkout@v4
       - run: ${{ matrix.script }}
