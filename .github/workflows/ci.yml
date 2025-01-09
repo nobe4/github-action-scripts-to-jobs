@@ -17,4 +17,4 @@ jobs:
         script: ["works.sh", "fails.sh", "waits.sh"]
     steps:
       - uses: actions/checkout@v4
-      - run: ./scripts/{{ matrix.script }}
+      - run: ./scripts/${{ matrix.script }}
