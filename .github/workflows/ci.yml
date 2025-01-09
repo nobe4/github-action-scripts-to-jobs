@@ -14,11 +14,10 @@ jobs:
     outputs:
       scripts: ${{ steps.scripts.outputs.scripts }}
     steps:
+      - uses: actions/checkout@v4
       - name: Define scripts
         id: scripts
-        run: |
-          scripts/list.sh
-          scripts/list.sh >> "$GITHUB_OUTPUT"
+        run: scripts/list.sh >> "$GITHUB_OUTPUT"
 
   execute:
     runs-on: ubuntu-latest
