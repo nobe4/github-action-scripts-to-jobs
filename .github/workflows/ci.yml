@@ -12,7 +12,7 @@ jobs:
   list:
     runs-on: ubuntu-latest
     outputs:
-      scripts: ${{ steps.list.outputs.scripts }}
+      scripts: ${{ steps.scripts.outputs.scripts }}
     steps:
       - name: Define scripts
         id: scripts
