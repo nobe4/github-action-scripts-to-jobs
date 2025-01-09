@@ -11,7 +11,7 @@ on:
 jobs:
   works:
     runs-on: ubuntu-latest
-    name: "{{ matrix.script }}"
+    name: "${{ matrix.script }}"
     strategy:
       matrix:
         script: ["works.sh", "fails.sh", "waits.sh"]
