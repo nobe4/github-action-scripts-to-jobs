@@ -17,7 +17,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Define scripts
         id: scripts
-        run: scripts/list.sh >> "$GITHUB_OUTPUT"
+        run: |
+          echo "scripts=[\"$(find scripts -type f | xargs | sed 's/ /", "/g')\"]" >> "$GITHUB_OUTPUT"
 
   execute:
     runs-on: ubuntu-latest
