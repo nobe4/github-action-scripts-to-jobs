@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Define scripts
         id: scripts
-        run: ./scripts/list.sh >> "$GITHUB_OUTPUT"
+        run: bash ./scripts/list.sh >> "$GITHUB_OUTPUT"
 
   execute:
     runs-on: ubuntu-latest
